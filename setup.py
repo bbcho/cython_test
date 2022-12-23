@@ -13,7 +13,7 @@ setup(
     name="cython_numpy_test",
     packages=find_packages("src"),
     package_dir={"": "src"},
-    version="0.0.6",
+    version="0.0.7",
     install_requires=[
         "numpy",
         "cython",
