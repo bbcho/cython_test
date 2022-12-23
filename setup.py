@@ -4,6 +4,7 @@ import numpy
 
 setup(
     name="cython_numpy_test",
+    version="0.0.1",
     install_requires=[
         "numpy",
         "cython",
