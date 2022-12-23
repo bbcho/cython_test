@@ -1,6 +1,13 @@
+# This is a pypi deployment workflow for github actions to build and deploy
+# python packages to pypi.org and test.pypi.org that have cython extensions.
+# Manylinux wheels are built for linux and universal wheels for macos and windows.
+
+name: Upload and Build Python Package
 on:
-  push:
-    branches: [main]
+  release:
+    types: [created]
+  # push:
+    # branches: [main]
 
 jobs:
   # https://github.com/marketplace/actions/python-wheels-manylinux-build
