@@ -50,4 +50,4 @@ jobs:
           pip install wheel
           python setup.py sdist bdist_wheel
           twine upload --repository testpypi dist/*
-        continue-on-error: true:wheel
+        continue-on-error: true
