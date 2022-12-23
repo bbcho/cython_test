@@ -1,0 +1,1 @@
+export PIP_ONLY_BINARY=cryptography
