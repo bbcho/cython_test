@@ -50,7 +50,7 @@ jobs:
           pip install wheel
           python setup.py sdist bdist_wheel
           twine upload --repository testpypi dist/*.whl
-        # continue-on-error: true # needed for existing file error when you upload the same file for diff python versions
+        # continue-on-error: true 
   
   deploy:
     name: Upload Source
