@@ -1,0 +1,9 @@
+README.md
+cython_test.c
+setup.py
+src/cython_numpy_test/__init__.py
+src/cython_numpy_test.egg-info/PKG-INFO
+src/cython_numpy_test.egg-info/SOURCES.txt
+src/cython_numpy_test.egg-info/dependency_links.txt
+src/cython_numpy_test.egg-info/requires.txt
+src/cython_numpy_test.egg-info/top_level.txt
