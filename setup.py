@@ -3,7 +3,7 @@ import Cython.Build
 import numpy
 
 setup(
-    name="cython_test",
+    name="cython_numpy_test",
     install_requires=[
         "numpy",
         "cython",
