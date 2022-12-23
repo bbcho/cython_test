@@ -18,7 +18,16 @@ jobs:
           pip install setuptools wheel twine cython numpy
 
       - name: build and upload manylinux wheels
-        uses: Niraj-Kamdar/manylinux-wheel-builder@master
+        uses: RalfG/python-wheels-manylinux-build@v0.6.0-manylinux2010_x86_64
+          with:
+            python-versions: 'cp310-cp310 cp311-cp311'
+            build-requirements: 'setuptools wheel twine cython numpy'
+            system-packages: 'libffi-dev'
+            pre-build-command: 'sh pre-build-script.sh'
+            #package-path: 'my_project'
+            pip-wheel-args: '-w ./dist --no-deps'
+
+
 
   Matrix-build:
     runs-on: ${{ matrix.os }}
