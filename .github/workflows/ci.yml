@@ -16,7 +16,7 @@ jobs:
           python-versions: 'cp310-cp310 cp311-cp311'
           build-requirements: 'setuptools wheel twine cython numpy'
           system-packages: 'libffi libffi-devel'
-          pre-build-command: 'sh pre-build-script.sh'
+          # pre-build-command: 'sh pre-build-script.sh'
           #package-path: 'my_project'
           pip-wheel-args: '-w ./dist --no-deps'
 
