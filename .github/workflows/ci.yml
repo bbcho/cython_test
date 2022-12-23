@@ -24,7 +24,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install twine
-          twine upload --repository testpypi dist/*
+          twine upload --repository testpypi dist/*.whl
 
   Matrix-build:
     runs-on: ${{ matrix.os }}
@@ -49,5 +49,27 @@ jobs:
         run: |
           pip install wheel
           python setup.py sdist bdist_wheel
-          twine upload --repository testpypi dist/*
-        continue-on-error: true # needed for existing file error when you upload the same file for diff python versions
+          twine upload --repository testpypi dist/*.whl
+        # continue-on-error: true # needed for existing file error when you upload the same file for diff python versions
+  
+  deploy:
+    name: Upload Source
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install setuptools wheel twine cython
+    - name: Build and publish
+      env:
+        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+        TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+      run: |
+        python setup.py sdist
+        twine upload dist/*
